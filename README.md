@@ -4,9 +4,11 @@ This Python app is containerised with [Docker Compose](https://docs.docker.com/c
 
 It does the following:
 
-1. Call the [VMware VeloCloud Orchestrator API](#appendix) to retrieve the enterprise events in the last 15 minutes;
+1. Call the [VMware VeloCloud Orchestrator API](#reference) to retrieve the enterprise events in the last 15 minutes;
 2. Append the enterprise events, with each in a new line, in a JSON file on a `Docker volume` that is accessible on the Docker host under `/var/lib/docker/volumes/<volume-name>/_data`, or in the same directory of the Python script if it is run as a standalone service, in a directory by the name of the enterprise; and
 3. Repeat the process every 15 minutes on the hour and at :15, :30 and :45 past for an automated enterprise events retrieval.
+
+For a list of the enterprise events along with severity and description, please refer to the [Supported VMware SD-WAN Edge Events](#reference) page in the VMware SD-WAN Documentation.
 
 ![alt text](https://kurtcms.org/git/vco-ent-event/vco-ent-event-screenshot.png)
 
@@ -138,3 +140,4 @@ In any case, the JSON file is stored under a directory by the enterpriseName to 
 ## Reference
 
 - [VMware SD-WAN Orchestrator API v1 Release 4.0.1](https://code.vmware.com/apis/1045/velocloud-sdwan-vco-api)
+- [VMware SD-WAN Documentation - Supported VMware SD-WAN Edge Events](https://docs.vmware.com/en/VMware-SD-WAN/4.0/VMware-SD-WAN-by-VeloCloud-Administration-Guide/GUID-0A41BC6A-5D8D-412A-BB87-A6B782997574.html)
