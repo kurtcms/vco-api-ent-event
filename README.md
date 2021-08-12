@@ -1,4 +1,4 @@
-# VMware VeloCloud SD-WAN: Automated Enterprise Events Retrieval for SIEM and SOAR Integration
+# VMware VeloCloud SD-WAN: Automated Enterprise Events Retrieval for Network SLM, SIEM and SOAR Integration
 
 This Python app is containerised with [Docker Compose](https://docs.docker.com/compose/) for rapid and modular deployment that fits in any microservice architecture.
 
