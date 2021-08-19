@@ -55,6 +55,11 @@ class pccwg_vco():
         self.client.authenticate(username, password, is_operator=False)
 
         '''
+        Read and initiate the time now
+        '''
+        self.time_now = self.__update_time()
+
+        '''
         Read and set the enterpriseName and enterpriseId from
         a call to the monitoring/getAggregateEdgeLinkMetrics
         '''
@@ -93,9 +98,8 @@ class pccwg_vco():
         '''
         if interval_sec is None:
             interval_sec = self.INTERVAL_SECS
-        time_now = self.__update_time()
-        self.time_end_e = time_now * 1000
-        self.time_start_e = (time_now - int(interval_sec)) * 1000
+        self.time_end_e = self.time_now * 1000
+        self.time_start_e = (self.time_now - int(interval_sec)) * 1000
 
     def _get_time(self, interval_sec = None):
         '''
@@ -105,11 +109,10 @@ class pccwg_vco():
         '''
         if interval_sec is None:
             interval_sec = self.INTERVAL_SECS
-        time_now = self.__update_time()
         self.time_end = datetime.datetime.utcfromtimestamp(
-                        time_now).isoformat()
+                        self.time_now).isoformat()
         self.time_start = datetime.datetime.utcfromtimestamp(
-                            time_now - int(interval_sec)).isoformat()
+                            self.time_now - int(interval_sec)).isoformat()
 
     def _get_aggre_metrics(self):
         '''
