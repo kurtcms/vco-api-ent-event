@@ -10,7 +10,7 @@ It does the following:
 
 For a list of the enterprise events along with severity and description, please refer to the [Supported VMware SD-WAN Edge Events](#reference) page in the VMware SD-WAN Documentation.
 
-![alt text](https://kurtcms.org/git/vco-ent-event/vco-ent-event-screenshot.png)
+<img src="https://kurtcms.org/git/vco-ent-event/vco-ent-event-screenshot.png" width="550">
 
 ## Table of Content
 
