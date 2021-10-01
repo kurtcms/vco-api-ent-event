@@ -99,7 +99,7 @@ class pccwg_vco():
         Replace non-alphanumeric character in string with a dash
         for sanitisation
         '''
-        return "".join([c if c.isalnum() else "-" for c in name])
+        return ''.join([c if c.isalnum() else '-' for c in name])
 
     def _get_time_e(self, interval_sec = None):
         '''
@@ -325,7 +325,7 @@ class pccwg_vco():
             'a') as f:
                 f.write(event)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     '''
     Create the VCO client object, and read and write
     the event by calling the respective functions.
