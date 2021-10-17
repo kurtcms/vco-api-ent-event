@@ -5,7 +5,7 @@ This Python app is containerised with [Docker Compose](https://docs.docker.com/c
 It does the following:
 
 1. Call the [VMware VeloCloud Orchestrator API](#reference) to retrieve the enterprise events in the last 15 minutes;
-2. Append the enterprise events, with each in a new line, in a JSON file on a `Docker volume` that is accessible on the Docker host under `/var/lib/docker/volumes/<volume-name>/_data`, or in the same directory of the Python script if it is run as a standalone service, in a directory by the name of the enterprise; and
+2. Append the enterprise events, with each in a new line, in a JSON file on a `Docker volume` that is mounted in the same directory of the `docker-compose.yml` file on the Docker host, or in the same directory of the Python script if it is run as a standalone service, in a directory by the name of the enterprise; and
 3. Repeat the process every 15 minutes on the hour and at :15, :30 and :45 past for an automated enterprise events retrieval.
 
 For a list of the enterprise events along with severity and description, please refer to the [Supported VMware SD-WAN Edge Events](#reference) page in the VMware SD-WAN Documentation.
@@ -127,7 +127,7 @@ $ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/vco-ent-event.py") | cro
 
 ## Enterprise Event in JSON
 
-The enterprise events will be appended to a JSON file, with each in a new line, on a `Docker volume` that is accessible on the Docker host under `/var/lib/docker/volumes/<volume-name>/_data`. If the Python script is run as a standalone service, the JSON file will be in the same directory of the script instead.
+The enterprise events will be appended to a JSON file, with each in a new line, on a `Docker volume` that is mounted in the same directory of the `docker-compose.yml` file on the Docker host. If the Python script is run as a standalone service, the JSON file will be in the same directory of the script instead.
 
 In any case, the JSON file is stored under a directory by the enterpriseName to ease access.
 
