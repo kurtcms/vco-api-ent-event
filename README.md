@@ -129,6 +129,10 @@ $ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/vco-ent-event.py") | cro
 
 The enterprise events will be appended to a JSON file, with each in a new line, on a `Docker volume` that is mounted in the same directory of the `docker-compose.yml` file on the Docker host. If the Python script is run as a standalone service, the JSON file will be in the same directory of the script instead.
 
+```
+{"id": 2913202, "eventTime": "2021-10-23T06:48:57.000Z", "event": "VPN_DATACENTER_STATUS", "category": "SYSTEM", "severity": "NOTICE", "message": "Tunnel to [Azure-SIN] - Failed to negotiate child SA IKEv2_I with 13.76.153.194. Error: ERR_IKE_TIMEOUT", "detail": "{\"enterpriseLogicalId\": \"24676352-23ed-4cdd-a0db-52f61810de1b\", \"dataCenterLogicalId\": \"bb395d4c-5963-4d14-8e6d-c2822c9dfadc\", \"ipAddress\": \"13.76.153.194\", \"ikeState\": \"DOWN\", \"numberP2SA\": 0, \"Hint\": \"No response from peer or no proposal chosen; check VPN type, GWIP, DH Group, IKE-ID, subnets.\"}", "enterpriseUsername": null, "edgeName": null, "segmentName": null}
+```
+
 In any case, the JSON file is stored under a directory by the enterpriseName to ease access.
 
 ```
