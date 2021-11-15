@@ -1,4 +1,4 @@
-# VMware VeloCloud SD-WAN: Automated Enterprise Events Retrieval for Network SLM, SIEM and SOAR Integration
+# VMware VeloCloud SD-WAN Orchestrator API: Automated Enterprise Events Retrieval for Network SLM, SIEM and SOAR Integration
 
 This Python app is containerised with [Docker Compose](https://docs.docker.com/compose/) for rapid and modular deployment that fits in any microservice architecture.
 
@@ -10,7 +10,7 @@ It does the following:
 
 For a list of the enterprise events along with severity and description, please refer to the [Supported VMware SD-WAN Edge Events](#reference) page in the VMware SD-WAN Documentation.
 
-<img src="https://kurtcms.org/git/vco-ent-event/vco-ent-event-screenshot.png" width="550">
+<img src="https://kurtcms.org/git/vco-api-ent-event/vco-api-ent-event-screenshot.png" width="550">
 
 ## Table of Content
 
@@ -39,7 +39,7 @@ Get started in three simple steps:
 
 Download a copy of the app with `git clone`
 ```shell
-$ git clone https://github.com/kurtcms/vco-ent-event /app/
+$ git clone https://github.com/kurtcms/vco-api-ent-event /app/
 ```
 
 ### Environment Variables
@@ -98,20 +98,20 @@ $ docker-compose down
 Otherwise the Docker image can also be built manually.
 
 ```shell
-$ docker build -t vco-ent-event /app/
+$ docker build -t vco_api_ent_event /app/
 ```
 
 Run the image with Docker once it is ready.  
 
 ```shell
-$ docker run -it --rm --name vco-ent-event vco-ent-event
+$ docker run -it --rm --name vco_api_ent_event vco_api_ent_event
 ```
 
 ### Standalone Python Script
 
 #### Dependencies
 
-Alternatively the `vco-ent-event.py` script may be deployed as a standalone service. In which case be sure to install the following required libraries for the `vco_main.py`:
+Alternatively the `vco_api_ent_event.py` script may be deployed as a standalone service. In which case be sure to install the following required libraries for the `vco_api_main.py`:
 
 1. [Requests](https://github.com/psf/requests)
 2. [Python-dotenv](https://github.com/theskumar/python-dotenv)
@@ -127,7 +127,7 @@ $ pip3 install requests python-dotenv numpy pandas
 The script may then be executed with a task scheduler such as [cron](https://crontab.guru/) that runs it once every 15 minutes for example.
 
 ```shell
-$ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/vco-ent-event.py") | crontab -
+$ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/vco_api_ent_event.py") | crontab -
 ```
 
 ## Enterprise Event in JSON
