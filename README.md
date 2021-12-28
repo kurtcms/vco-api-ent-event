@@ -10,6 +10,8 @@ It does the following:
 
 For a list of the enterprise events along with severity and description, please refer to the [Supported VMware SD-WAN Edge Events](#reference) page in the VMware SD-WAN Documentation.
 
+A detailed walk-though is available [here](https://kurtcms.org/vmware-velocloud-sd-wan-orchestrator-api-automated-enterprise-events-retrieval-for-network-slm-siem-and-soar-integration/).
+
 <img src="https://kurtcms.org/git/vco-api-ent-event/vco-api-ent-event-screenshot.png" width="550">
 
 ## Table of Content
