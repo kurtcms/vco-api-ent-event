@@ -1,6 +1,6 @@
 # VMware VeloCloud SD-WAN Orchestrator API: Automated Enterprise Events Retrieval for Network SLM, SIEM and SOAR Integration
 
-This Python app is containerised with [Docker Compose](https://docs.docker.com/compose/) for rapid and modular deployment that fits in any microservice architecture.
+This Python app is containerised with [Docker Compose](https://docs.docker.com/compose/) for a modular and cloud native deployment that fits in any microservice architecture.
 
 It does the following:
 
@@ -51,7 +51,7 @@ Should both the API token, and the username and password, for the VCO be present
 Be sure to create the `.env` file.
 
 ```shell
-$ nano /app/.env
+$ nano /app/vco-api-ent-event/.env
 ```
 
 And define the credentials accordingly.
@@ -69,22 +69,24 @@ VCO_PASSWORD = '(redacted)'
 
 ### Crontab
 
-By default the app is scheduled with [cron](https://crontab.guru/) to retrieve the enterprise events every 15 minutes, with `stdout` and `stderr` redirected to the main process for `Docker logs`.  
+By default the app is scheduled with [cron](https://linux.die.net/man/8/cron) to retrieve the enterprise events every 15 minutes, with `stdout` and `stderr` redirected to the main process for `Docker logs`.  
 
 Modify the `crontab` if a different schedule is required.
 
 ```shell
-$ nano /app/crontab
+$ nano /app/vco-api-ent-event/crontab
 ```
 
 ### Docker Container
 
+Packaged as a container, the app is a standalone, executable package that may be run on Docker Engine. Be sure to have [Docker](https://docs.docker.com/engine/install/) installed.
+
 #### Docker Compose
 
-With Docker Compose, the container may be provisioned with a single command. Be sure to have Docker Compose [installed](https://docs.docker.com/compose/install/).
+With Docker Compose, the app may be provisioned with a single command. Be sure to have [Docker Compose](https://docs.docker.com/compose/install/) installed.
 
 ```shell
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 Stopping the container is as simple as a single command.
@@ -98,7 +100,7 @@ $ docker-compose down
 Otherwise the Docker image can also be built manually.
 
 ```shell
-$ docker build -t vco_api_ent_event /app/
+$ docker build -t vco_api_ent_event /app/vco-api-ent-event/
 ```
 
 Run the image with Docker once it is ready.  
@@ -109,9 +111,11 @@ $ docker run -it --rm --name vco_api_ent_event vco_api_ent_event
 
 ### Standalone Python Script
 
+Alternatively the `vco_api_ent_event.py` script may be deployed as a standalone service.
+
 #### Dependencies
 
-Alternatively the `vco_api_ent_event.py` script may be deployed as a standalone service. In which case be sure to install the following required libraries for the `vco_api_main.py`:
+In which case be sure to install the following required libraries for the `vco_api_main.py`:
 
 1. [Requests](https://github.com/psf/requests)
 2. [Python-dotenv](https://github.com/theskumar/python-dotenv)
@@ -124,10 +128,10 @@ $ pip3 install requests python-dotenv numpy pandas
 
 #### Cron
 
-The script may then be executed with a task scheduler such as [cron](https://crontab.guru/) that runs it once every 15 minutes for example.
+The script may then be executed with a task scheduler such as [cron](https://linux.die.net/man/8/cron) that runs it once every 15 minutes for example.
 
 ```shell
-$ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/vco_api_ent_event.py") | crontab -
+$ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/vco-api-ent-event/vco_api_ent_event.py") | crontab -
 ```
 
 ## Enterprise Event in JSON
