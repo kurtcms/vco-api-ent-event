@@ -12,7 +12,7 @@ For a list of the enterprise events along with severity and description, please 
 
 A detailed walk-through is available [here](https://kurtcms.org/vmware-velocloud-sd-wan-orchestrator-api-automated-enterprise-events-retrieval-for-network-slm-siem-and-soar-integration/).
 
-<img src="https://kurtcms.org/git/vco-api-ent-event/vco-api-ent-event-screenshot.png" width="550">
+<img src="https://github.com/kurtcms/vco-api-ent-event/blob/master/screenshot.png" width="550">
 
 ## Table of Content
 
