@@ -37,10 +37,10 @@ Get started in three simple steps:
 
 ### Git Clone
 
-Download a copy of the app with `git clone`.
+Download a copy of the app with `git clone`. Be sure to pass the `--recurse-submodules` argument to initialise and update each submodule in the repository.
 
 ```shell
-$ git clone https://github.com/kurtcms/vco-api-ent-event /app/vco-api-ent-event/
+$ git clone --recurse-submodules https://github.com/kurtcms/vco-api-ent-event /app/vco-api-ent-event/
 ```
 
 ### Environment Variables
