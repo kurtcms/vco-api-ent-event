@@ -37,7 +37,8 @@ Get started in three simple steps:
 
 ### Git Clone
 
-Download a copy of the app with `git clone`
+Download a copy of the app with `git clone`.
+
 ```shell
 $ git clone https://github.com/kurtcms/vco-api-ent-event /app/vco-api-ent-event/
 ```
